@@ -30,10 +30,8 @@ public class Forest_Worker : Worker
 
     void OnDestroy()
     {
-        if(buildingobj != null)
-        {
-            buildingobj.DestroyMyself();
-        }
+        buildingobj?.DestroyMyself();
+
         if (!(createCount > maxCreateCount - 1))
             GameMng.I.RemoveDelegate(waitingCreate);
         else

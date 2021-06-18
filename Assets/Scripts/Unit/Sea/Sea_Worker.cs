@@ -30,10 +30,8 @@ public class Sea_Worker : Worker
 
     void OnDestroy()
     {
-        if (buildingobj != null)
-        {
-            buildingobj.DestroyMyself();
-        }
+        buildingobj?.DestroyMyself();
+
         if (!(createCount > maxCreateCount))
             GameMng.I.RemoveDelegate(waitingCreate);
         else
