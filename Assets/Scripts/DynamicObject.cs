@@ -40,7 +40,9 @@ public class DynamicObject : Object
     public Color GetUserColor(int uniqueNumber)
     {
         Color color = Color.white;
-        ColorUtility.TryParseHtmlString(CustomColor.TransColor(NetworkMng.getInstance.myColor), out color); for (int i = 0; i < NetworkMng.getInstance.v_user.Count; i++)
+        ColorUtility.TryParseHtmlString(CustomColor.TransColor(NetworkMng.getInstance.myColor), out color); 
+        
+        for (int i = 0; i < NetworkMng.getInstance.v_user?.Count; i++)
         {
             if (NetworkMng.getInstance.v_user[i].uniqueNumber.Equals(uniqueNumber))
             {
@@ -51,6 +53,9 @@ public class DynamicObject : Object
         return color;
     }
 
+    /**
+     * @brief 유닛 또는 건물이 파괴 되었을 떄 호출
+     */
     public void DestroyMyself()
     {
         _anim.SetTrigger("isDying");
